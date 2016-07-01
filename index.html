@@ -2,11 +2,20 @@
 <html>
   <head>
     <title>JS Challenger</title>
+    
     <script src="js/angular.min.js"></script>
     <script src="js/modal.min.js"></script>
     <script src="js/esprima.js"></script>
+
+    <script src="js/editor/ace.js"></script>
+    <script src="js/editor/mode-javascript.js"></script>
+    <script src="js/editor/theme-twilight.js"></script>
+    <script src="js/editor/worker-javascript.js"></script>
+
     <script src="js/main.js"></script>
+    
     <link href="css/style.css" type="text/css" rel="stylesheet">
+    
     <base href="/"> 
   </head>
   <body ng-app="challenger" ng-controller="ChallengeCtrl">
@@ -36,7 +45,8 @@
     </div>
 
     <div class="userCode">
-      <input type="textarea" ng-model="code">
+      <pre id="editor" ng-model="code">
+      </pre>
     </div>
 
     <button class="btn" id="submitCode" ng-click="submitCode()">Check Your Code</button>

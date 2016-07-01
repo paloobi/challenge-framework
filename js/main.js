@@ -10,6 +10,14 @@ var app = angular.module('challenger', ['btford.modal']);
 // }
 //
 
+// Editor factory for managing the ACE editor
+app.factory('Editor', function() {
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/twilight");
+  editor.session.setMode("ace/mode/javascript");
+});
+
+// Challenge factory for saving and updating the challenge contents
 app.factory('Challenge', function() {
   
   var currChallenge;
@@ -25,6 +33,7 @@ app.factory('Challenge', function() {
 
 });
 
+// Modal for creating a new challenge
 app.factory('CreateModal', function (btfModal) {
   return btfModal({
     controller: 'CreateCtrl',
@@ -32,6 +41,7 @@ app.factory('CreateModal', function (btfModal) {
   });
 });
 
+// controller for the modal - creates and saves new challenges
 app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope) {
   
   // parse user input into a list of items
@@ -65,7 +75,8 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 
 });
 
-app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge) {
+// challenge controller for the main page
+app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor) {
   
   $scope.createNew = function() {
     var confirm = window.confirm('Are you sure? Previous challenge will be lost!');
