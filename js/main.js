@@ -46,13 +46,14 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
   }
 
   $scope.create = function() {
-    console.log($scope.allowed, $scope.notallowed, $scope.nested)
+    
     // create a new challenge object
     Challenge.create({
       allowed: parseList($scope.allowed),
       notallowed: parseList($scope.notallowed),
       nested: parseNested($scope.nested)
     });
+
     // close the modal
     CreateModal.deactivate();
   }
@@ -65,6 +66,6 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge) {
     var confirm = window.confirm('Are you sure? Previous challenge will be lost!');
     if (confirm) CreateModal.activate();
   }
-  console.log(Challenge.get())
+  console.log( Challenge.get() );
 
 });

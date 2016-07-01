@@ -26,3 +26,11 @@ fieldset {
   font-size: 150%;
   border-radius: 5px;
 }
+
+.btn:hover {
+  cursor: pointer;
+}
+
+#createBtn {
+  float: right;
+}
