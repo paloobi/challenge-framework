@@ -118,9 +118,13 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor) {
   
   $scope.createNew = function() {
-    var confirm = window.confirm('Are you sure? Previous challenge will be lost!');
-    if (confirm) CreateModal.activate();
-    $scope.challenge = Challenge.get();
+    if (!$scope.challenge) {
+      CreateModal.activate();
+      $scope.challenge = Challenge.get();
+    } else if( window.confirm('Are you sure? Previous challenge will be lost!') ) { 
+      CreateModal.activate();
+      $scope.challenge = Challenge.get();
+    }
   }
 
   $scope.submitCode = function() {
