@@ -122,7 +122,7 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
     if (confirm) CreateModal.activate();
   }
 
-  #scope.challenge = Challenge.get();
+  $scope.challenge = Challenge.get();
 
   $scope.submitCode = function() {
     var code = Editor.get();
