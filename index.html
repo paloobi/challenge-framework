@@ -4,12 +4,11 @@
     <title>JS Challenger</title>
     <script src="js/angular.min.js"></script>
     <script src="js/modal.min.js"></script>
+    <script src="js/esprima.js"></script>
     <script src="js/main.js"></script>
     <base href="/"> 
   </head>
-  <body ng-app="challenger">
-    <form>
-      
-    </form>
+  <body ng-app="challenger" ng-controller="ChallengeCtrl">
+    <button ng-click="createNew()">Create New Challenge</button>
   </body>
 </html>
