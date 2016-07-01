@@ -34,23 +34,23 @@
       <button id="createBtn" class="btn" ng-click="createNew()">Create New Challenge</button>
       
       <div class="contents">
-        <p ng-show="challenge().instructions">{{challenge.instructions}}</p>
+        <p ng-show="getChallenge().instructions">{{challenge.instructions}}</p>
 
-        <p ng-show="challenge().allowed.length">Use the following commands:
+        <p ng-show="getChallenge().allowed.length">Use the following commands:
           <ul>
-            <li ng-repeat="keyword in challenge().allowed">{{keyword}}</li>
+            <li ng-repeat="keyword in getChallenge().allowed">{{keyword}}</li>
           </ul>
         </p>
 
-        <p ng-show="challenge().notallowed.length">You cannot use any of the following keywords: 
+        <p ng-show="getChallenge().notallowed.length">You cannot use any of the following keywords: 
           <ul>
-            <li ng-repeat="keyword in challenge().notallowed">{{keyword}}</li>
+            <li ng-repeat="keyword in getChallenge().notallowed">{{keyword}}</li>
           </ul>
         </p>
 
-        <p ng-show="challenge().nested.length">Ensure that you include the following: 
+        <p ng-show="getChallenge().nested.length">Ensure that you include the following: 
           <ul>
-            <li ng-repeat="pair in challenge().nested">{{ pair | printNestedReq }}</li>
+            <li ng-repeat="pair in getChallenge().nested">{{ pair | printNestedReq }}</li>
           </ul>
         </p>
       </div>
