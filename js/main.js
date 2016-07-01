@@ -36,7 +36,6 @@ app.factory('Challenge', function() {
     var type = keyword[0].toUpperCase() + keyword.slice(1) + "Statement";
 
     var q = [syntax];
-    console.log('entered');
     while (q.length) {
       var curr = q.pop();
       if (curr.type === type) return curr;
@@ -67,7 +66,7 @@ app.factory('Challenge', function() {
         return search( search(syntax, nested.parent), nested.child);
       });
 
-      return ( allowedIncluded && notAllowedNotIncluded && nestingsIncluded );
+      return [allowedIncluded, notAllowedNotIncluded, nestingsIncluded];
     }
   }
 
@@ -125,7 +124,7 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
 
   $scope.submitCode = function() {
     var code = Editor.get();
-    console.log(Challenge.check(code));
+    var correct = Challenge.check(code);
   }
 
 });
