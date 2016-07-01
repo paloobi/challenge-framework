@@ -27,7 +27,7 @@ textarea {
 }
 
 #createModal {
-  background-color: white;
+  background-color: #E0E4CC;
   border-radius: 5px;
   position: fixed;
   width: 50%;
@@ -70,7 +70,7 @@ textarea {
     left: 33%;
 }
 
-.prompt {
+#prompt {
     display: inline-block;
     position: absolute;
     left: 47%;
@@ -78,6 +78,7 @@ textarea {
     height: 100%;
     background-color: black;
     width: 53%;
+    color: white;
 }
 
 #createBtn {

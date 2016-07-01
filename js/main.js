@@ -117,11 +117,15 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 // challenge controller for the main page
 app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor) {
   
+  $scope.challenge = {
+    instructions: "Create a while loop with an if statement inside of it.",
+    allowed: ["while","if"]
+    notallowed: ["for"],
+    nested: [ { parent:"while", child: "for" } ]
+  }
+
   $scope.createNew = function() {
-    if (!$scope.challenge) {
-      CreateModal.activate();
-      $scope.challenge = Challenge.get();
-    } else if( window.confirm('Are you sure? Previous challenge will be lost!') ) { 
+    if( window.confirm('Are you sure? Previous challenge will be lost!') ) { 
       CreateModal.activate();
       $scope.challenge = Challenge.get();
     }
