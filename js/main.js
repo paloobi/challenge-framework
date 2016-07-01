@@ -12,6 +12,7 @@ app.factory('Challenge', function() {
 
   return {
     create: function(params) {
+      console.log("params: ", params)
       currChallenge = params;
     },
     get: function(){
@@ -45,6 +46,7 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
   }
 
   $scope.create = function() {
+    console.log($scope.allowed, $scope.notallowed, $scope.nested)
     // create a new challenge object
     Challenge.create({
       allowed: parseList($scope.allowed),
