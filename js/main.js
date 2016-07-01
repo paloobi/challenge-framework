@@ -38,6 +38,7 @@ app.factory('Challenge', function() {
       return currChallenge;
     },
     check: function(code) {
+      console.log('received code in checker');
       var syntax = esprima.parse(code);
       console.log(syntax);
     }
@@ -96,7 +97,11 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
   }
 
   $scope.submitCode = function() {
-    Challenge.check( Editor.get() )
+    console.log("submitting code");
+    var code = Editor.get();
+    console.log('contents are: ' + code);
+    console.log('runnning check');
+    Challenge.check(code)
   }
 
 });
