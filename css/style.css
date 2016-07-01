@@ -37,5 +37,13 @@ fieldset {
 }
 
 #createBtn {
+  float: left;
+}
+
+.userCode {
   float: right;
+  width: 50%;
+  background-color: darkgray;
+  color: white;
+  font-family: monospace;
 }
