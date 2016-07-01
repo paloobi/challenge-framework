@@ -1,11 +1,11 @@
 <div id="createModal">
   <form name="createForm">
     
-    <label for="whitelist">Allowed Commands (comma-separated): </label><input type="text" name="whitelist" ng-model="allowed">
+    <label for="whitelist">Allowed Commands (comma-separated): </label><input type="text" name="whitelist" ng-model="allowed"><br>
     
-    <label for="blacklist">Commands Not Allowed (comma-separated): </label><input type="text" name="blacklist" ng-model="notallowed">
+    <label for="blacklist">Commands Not Allowed (comma-separated): </label><input type="text" name="blacklist" ng-model="notallowed"><br>
     
-    <label for="nested">Required Nested Structure (ex: <code>while>if</code> would mean an <code>if</code> statement inside a <code>while</code> loop)</label><input type="text" name="nested" ng-model="nested">
+    <label for="nested">Required Nested Structure (ex: <code>while>if</code> would mean an <code>if</code> statement inside a <code>while</code> loop)</label><input type="text" name="nested" ng-model="nested"><br>
     
     <input type="submit" value="Submit" ng-click="create()">
   </form>
