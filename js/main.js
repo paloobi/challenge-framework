@@ -12,7 +12,7 @@ var app = angular.module('challenger', ['btford.modal']);
 
 app.filter('printNestedReq', function() {
   return function(nestedReq) {
-    nestedReq.parent + " with a " + nestedReq + " statement inside of it";
+    return nestedReq.parent + " with a " + nestedReq + " statement inside of it";
   }
 })
 
