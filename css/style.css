@@ -21,5 +21,8 @@ fieldset {
 }
 
 .btn {
-  background-color: #69D2E7; 
+  background-color: #69D2E7;
+  border: none; 
+  font-size: 150%;
+  border-radius: 5px;
 }
