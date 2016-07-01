@@ -10,6 +10,10 @@ var app = angular.module('challenger', ['btford.modal']);
 // }
 //
 
+app.filter('printNestedReq', function(nestedReq) {
+  return nestedReq.parent + " with a " + nestedReq + " statement inside of it";
+})
+
 // Editor factory for managing the ACE editor
 app.factory('Editor', function() {
   var editor = ace.edit("editor");

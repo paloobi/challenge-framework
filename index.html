@@ -49,7 +49,7 @@
 
       <p ng-show="challenge.nested.length">Ensure that you include the following: 
         <ul>
-          <li ng-repeat="pair in challenge.nested">{{ pair }}</li>
+          <li ng-repeat="pair in challenge.nested">{{ pair | printNestedReq }}</li>
         </ul>
       </p>
 
