@@ -39,6 +39,7 @@ app.factory('Challenge', function() {
     },
     check: function(code) {
       var syntax = esprima.parse(code);
+      console.log(syntax);
     }
   }
 
