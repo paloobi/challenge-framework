@@ -15,6 +15,7 @@ app.factory('Editor', function() {
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/twilight");
   editor.session.setMode("ace/mode/javascript");
+  return {};
 });
 
 // Challenge factory for saving and updating the challenge contents
