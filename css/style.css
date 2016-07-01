@@ -20,7 +20,7 @@ fieldset {
   position: fixed;
   width: 50%;
   margin: auto;
-  box-shadow: 0px 3px 20px gray;
+  box-shadow: 0px 3px 20px black 0.2;
   left: 0;
   right: 0;
   z-index: 100;
@@ -54,10 +54,18 @@ fieldset {
 }
 
 #submitCode {
-  z-index: 100;
+    z-index: 100;
+    bottom: 0;
+    position: absolute;
+    left: 33%;
 }
 
 .prompt {
-  display: inline-block;
-  position: absolute;
+    display: inline-block;
+    position: absolute;
+    left: 47%;
+    top: 0;
+    height: 100%;
+    background-color: black;
+    width: 53%;
 }
