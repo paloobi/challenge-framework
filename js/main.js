@@ -34,7 +34,12 @@ app.factory('Editor', function() {
 // Challenge factory for saving and updating the challenge contents
 app.factory('Challenge', function() {
   
-  var currChallenge;
+  var currChallenge = {
+    instructions: "Create a while loop with an if statement inside of it.",
+    allowed: ["while","if"],
+    notallowed: ["for"],
+    nested: [ { parent:"while", child: "for" } ]
+  };
 
   // search function looks within a syntax node to find an item
   function search(syntax, keyword) {
@@ -123,17 +128,11 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 // challenge controller for the main page
 app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor) {
   
-  $scope.challenge = {
-    instructions: "Create a while loop with an if statement inside of it.",
-    allowed: ["while","if"],
-    notallowed: ["for"],
-    nested: [ { parent:"while", child: "for" } ]
-  }
+  $scope.getChallenge = Challenge.get;
 
   $scope.createNew = function() {
     if( window.confirm('Are you sure? Previous challenge will be lost!') ) { 
       CreateModal.activate();
-      $scope.challenge = Challenge.get();
     }
   }
 
