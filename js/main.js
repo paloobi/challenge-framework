@@ -24,7 +24,7 @@ var app = angular.module('challenger', ['btford.modal']);
 app.factory('CreateModal', function (btfModal) {
   return btfModal({
     controller: 'CreateCtrl',
-    templateUrl: 'js/views/create.html'
+    templateUrl: 'challenge-framework/js/views/create.html'
   });
 });
 
