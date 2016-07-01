@@ -120,9 +120,8 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
   $scope.createNew = function() {
     var confirm = window.confirm('Are you sure? Previous challenge will be lost!');
     if (confirm) CreateModal.activate();
+    $scope.challenge = Challenge.get();
   }
-
-  $scope.challenge = Challenge.get();
 
   $scope.submitCode = function() {
     var code = Editor.get();
