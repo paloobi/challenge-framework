@@ -1,10 +1,14 @@
 var app = angular.module('challenger', ['btford.modal']);
 
-// // challenge schema:
-
-// //allowed [String]
-// //disallowed [String]
-// //required [{parent: String, child: String}]
+// challenge schema:
+//
+// {
+//    instructions: String
+//    allowed: [String]
+//    disallowed: [String]
+//    nested: [{parent: String, child: String}]
+// }
+//
 
 app.factory('Challenge', function() {
   
@@ -46,9 +50,10 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
   }
 
   $scope.create = function() {
-    
+
     // create a new challenge object
     Challenge.create({
+      instructions: $scope.instructions,
       allowed: parseList($scope.allowed),
       notallowed: parseList($scope.notallowed),
       nested: parseNested($scope.nested)
@@ -66,6 +71,9 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge) {
     var confirm = window.confirm('Are you sure? Previous challenge will be lost!');
     if (confirm) CreateModal.activate();
   }
-  console.log( Challenge.get() );
+
+  $scope.challenge = Challenge.get();
+
+  console.log( $scope.challenge );
 
 });

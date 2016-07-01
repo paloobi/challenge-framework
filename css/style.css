@@ -15,6 +15,7 @@ fieldset {
 }
 
 #createModal {
+  float: right;
   width: 50%;
   margin: auto;
   box-shadow: 0px 3px 20px gray;
@@ -23,7 +24,8 @@ fieldset {
 .btn {
   background-color: #69D2E7;
   border: none; 
-  font-size: 150%;
+  font-size: 120%;
+  padding: 10px;
   border-radius: 5px;
 }
 

@@ -11,5 +11,41 @@
   </head>
   <body ng-app="challenger" ng-controller="ChallengeCtrl">
     <button id="createBtn" class="btn" ng-click="createNew()">Create New Challenge</button>
+
+    <div class="prompt">
+      <p>{{challenge.instructions}}</p>
+
+      {% if challenge.allowed.length %}
+        <p>Use the following commands:
+          <ul>
+            <li ng-repeat="keyword in challenge.allowed">{{keyword}}</li>
+          </ul>
+        </p>
+      {% endif %}
+
+      {% if challenge.notallowed.length %}
+        <p>You cannot use any of the following keywords: 
+          <ul>
+            <li ng-repeat="keyword in challenge.notallowed">{{keyword}}</li>
+          </ul>
+        </p>
+      {% endif %}
+
+      {% if challenge.nested.length %}
+        <p>Ensure that you include the following: 
+          <ul>
+            <li ng-repeat="pair in challenge.nested">{{ pair }}</li>
+          </ul>
+        </p>
+      {% endif %}
+      
+    </div>
+
+    <div class="userCode">
+      <label for="code">Submit Your Code:</label>
+      <input type="textarea">
+    </div>
+
+    <button class="btn" id="submitCode" ng-click="submitCode()">Check Your Code</button>
   </body>
 </html>
