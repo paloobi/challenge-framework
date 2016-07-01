@@ -126,7 +126,7 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 });
 
 // challenge controller for the main page
-app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor, Message) {
+app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor) {
   
   $scope.getChallenge = Challenge.get;
 
