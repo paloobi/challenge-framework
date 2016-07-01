@@ -141,9 +141,9 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
     var correct = Challenge.check(code);
 
     $scope.messages = [];
-    if (!correct[0]) messages.push("You're missing one of the required arguments... ");
-    if (!correct[1]) messages.push("You included something you're not supposed to... ");
-    if (!correct[2]) messages.push("Hm, this problem requires some specific nesting. Check again.");
+    if (!correct[0]) $scope.messages.push("You're missing one of the required arguments... ");
+    if (!correct[1]) $scope.messages.push("You included something you're not supposed to... ");
+    if (!correct[2]) $scope.messages.push("Hm, this problem requires some specific nesting. Check again.");
   }
 
 });
