@@ -41,8 +41,13 @@ fieldset {
 }
 
 .userCode {
-  float: right;
+  position: fixed;
+  right: 0;
   width: 50%;
+  height: 100%;
+}
+
+.userCode input {
   background-color: darkgray;
   color: white;
   font-family: monospace;
