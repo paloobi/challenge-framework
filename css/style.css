@@ -43,26 +43,11 @@ fieldset {
   float: left;
 }
 
-.userCode {
-  float: right;
-  right: 0;
-  width: 50%;
-  height: 100%;
-}
-
-.userCode input {
-  background-color: darkgray;
-  color: white;
-  font-family: monospace;
-  height: 100%;
-  margin: 0;
-}
-
 #editor {
   margin: 0;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 47%;
   bottom: 0;
 }
