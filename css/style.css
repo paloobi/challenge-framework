@@ -39,10 +39,6 @@ fieldset {
   cursor: pointer;
 }
 
-#createBtn {
-  float: left;
-}
-
 #editor {
   margin: 0;
   position: absolute;
@@ -68,4 +64,9 @@ fieldset {
     height: 100%;
     background-color: black;
     width: 53%;
+}
+
+#createBtn {
+    right: 0;
+    position: absolute;
 }
