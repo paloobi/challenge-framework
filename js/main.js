@@ -30,6 +30,21 @@ app.factory('Challenge', function() {
   
   var currChallenge;
 
+  // search function looks within a syntax node to find an item
+  function search(syntax, keyword) {
+    // create type from keyword given
+    var type = keyword[0].toUpperCase() + keyword.slice(1) + "Statement";
+
+    var q = [syntax];
+    console.log('entered');
+    while (q.length) {
+      var curr = q.pop();
+      if (curr.type === type) return curr;
+      if (curr.body) q = q.concat(curr.body);
+    }
+    return false;
+  }
+
   return {
     create: function(params) {
       currChallenge = params;
@@ -38,9 +53,21 @@ app.factory('Challenge', function() {
       return currChallenge;
     },
     check: function(code) {
-      console.log('received code in checker');
       var syntax = esprima.parse(code, {tokens: true});
-      console.log(syntax);
+
+      var allowedIncluded = currChallenge.allowed.every(function(keyword) {
+        return search(syntax, keyword);
+      });
+
+      var notAllowedNotIncluded = currChallenge.notallowed.every(function(keyword) {
+        return !search(syntax, keyword);
+      });
+
+      var nestingsIncluded = currChallenge.nested.every(function(nested) {
+        return search( search(syntax, nested.parent), nested.child);
+      });
+
+      return ( allowedIncluded && notAllowedNotIncluded && nestingsIncluded );
     }
   }
 
