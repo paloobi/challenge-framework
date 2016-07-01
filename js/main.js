@@ -3,9 +3,9 @@ var app = angular.module('challenger', ['btford.modal']);
 // challenge schema:
 //
 // {
-//    instructions: String
-//    allowed: [String]
-//    disallowed: [String]
+//    instructions: String,
+//    allowed: [String],
+//    disallowed: [String],
 //    nested: [{parent: String, child: String}]
 // }
 //
@@ -15,7 +15,11 @@ app.factory('Editor', function() {
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/twilight");
   editor.session.setMode("ace/mode/javascript");
-  return {};
+  return {
+    get: function() {
+      return editor.getValue();
+    }
+  };
 });
 
 // Challenge factory for saving and updating the challenge contents

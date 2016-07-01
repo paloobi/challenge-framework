@@ -23,6 +23,7 @@ fieldset {
   box-shadow: 0px 3px 20px gray;
   left: 0;
   right: 0;
+  z-index: 100;
 }
 
 .btn {
@@ -58,10 +59,10 @@ fieldset {
 }
 
 #editor {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 47%;
+  bottom: 0;
 }
