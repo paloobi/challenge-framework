@@ -20,6 +20,7 @@ input[type="text"], textarea {
   border-radius: 5px;
   padding: 5px;
   font-family: monospace;
+  background-color: #eee;
 }
 
 textarea {
@@ -78,7 +79,7 @@ textarea {
     height: 100%;
     background-color: black;
     width: 53%;
-    color: white;
+    color: #ddd;
 }
 
 #createBtn {
