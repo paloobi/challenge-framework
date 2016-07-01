@@ -18,6 +18,9 @@ app.factory('Editor', function() {
   return {
     get: function() {
       return editor.getValue();
+    },
+    set: function(code) {
+      editor.setValue(code);
     }
   };
 });
@@ -33,6 +36,9 @@ app.factory('Challenge', function() {
     },
     get: function(){
       return currChallenge;
+    },
+    check: function(code) {
+      var syntax = esprima.parse(code);
     }
   }
 
@@ -89,8 +95,7 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
   }
 
   $scope.submitCode = function() {
-    var syntax = esprima.parse($scope.code);
-    console.log(syntax);
+    Challenge.check( Editor.get() )
   }
 
 });
