@@ -1,10 +1,26 @@
-<form name="createForm">
-  
-  <label for="whitelist">Allowed Commands (comma-separated): </label><input type="text" name="whitelist" ng-model="allowed">
-  
-  <label for="blacklist">Commands Not Allowed (comma-separated): </label><input type="text" name="blacklist" ng-model="notallowed">
-  
-  <label for="nested">Required Nested Structure (ex: <code>while>if</code> would mean an <code>if</code> statement inside a <code>while</code> loop)</label><input type="text" name="nested" ng-model="nested">
-  
-  <input type="submit" value="Submit" ng-click="create()">
-</form>
+<div id="createModal">
+  <form name="createForm">
+    
+    <fieldset>
+      <label for="instructions">Instructions: </label><br>
+      <textarea name="instructions" ng-model="instructions" rows="4">Add a description of the code you're asking the user to input</textarea><br>
+    </fieldset>
+
+    <fieldset>
+      <label for="whitelist">Allowed Commands (comma-separated): </label><br>
+      <input type="text" name="whitelist" ng-model="allowed"><br>
+    </fieldset>
+    
+    <fieldset>
+      <label for="blacklist">Commands Not Allowed (comma-separated): </label><br>
+      <input type="text" name="blacklist" ng-model="notallowed"><br>
+    </fieldset>
+
+    <fieldset>
+      <label for="nested">Required Nested Structure (ex: <code>while>if</code> would mean an <code>if</code> statement inside a <code>while</code> loop)</label><br>
+      <input type="text" name="nested" ng-model="nested"><br>
+    </fieldset>
+    
+    <input class="btn" type="submit" value="Submit" ng-click="create()">
+  </form>
+</div>

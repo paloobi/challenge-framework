@@ -1,0 +1,104 @@
+/* colors:
+
+blue - #69D2E7
+aqua - #A7DBD8
+beige - #E0E4CC
+light orange - #F38630
+orange - #FA6900
+*/
+body {
+  font-family: sans-serif;
+}
+
+#createModal {
+  background-color: #ddd;
+  border-radius: 5px;
+  position: fixed;
+  width: 50%;
+  margin: auto;
+  margin-top: 100px;
+  box-shadow: 0px 3px 20px black 0.2;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px;
+}
+
+fieldset {
+  border: none;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: monospace;
+  background-color: #eee;
+}
+
+textarea {
+  font-family: sans-serif;
+}
+
+.btn {
+  background-color: #69D2E7;
+  border: none; 
+  font-size: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+#editor {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 47%;
+  bottom: 0;
+  z-index: -100;
+}
+
+#submitCode {
+    z-index: 100;
+    bottom: 0;
+    position: absolute;
+    left: 33%;
+}
+
+#prompt {
+    display: inline-block;
+    position: absolute;
+    left: 47%;
+    top: 0;
+    height: 100%;
+    background-color: black;
+    width: 53%;
+    color: #666;
+}
+
+#prompt .contents {
+  padding: 80px;
+}
+
+#createBtn {
+    right: 0;
+    position: absolute;
+}
+
+#feedback {
+  position: fixed;
+  bottom: 0;
+  margin: auto;
+}
+
+.message {
+  background-color: #A7DBD8;
+  border-radius: 10px;
+  padding: 10px;
+}

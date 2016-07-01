@@ -2,14 +2,64 @@
 <html>
   <head>
     <title>JS Challenger</title>
+
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
+
     <script src="js/angular.min.js"></script>
     <script src="js/modal.min.js"></script>
+    <script src="js/esprima.js"></script>
+
+    <script src="js/editor/ace.js"></script>
+    <script src="js/editor/mode-javascript.js"></script>
+    <script src="js/editor/theme-twilight.js"></script>
+    <script src="js/editor/worker-javascript.js"></script>
+
     <script src="js/main.js"></script>
+    
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    
     <base href="/"> 
   </head>
-  <body ng-app="challenger">
-    <form>
+  <body ng-app="challenger" ng-controller="ChallengeCtrl">
+
+    <div class="codeSection">
+      <pre id="editor">
+        // your code here
+      </pre>
+      <button class="btn" id="submitCode" ng-click="submitCode()">Check Your Code</button>
+    </div>
+
+    <div id="prompt">
+
+      <button id="createBtn" class="btn" ng-click="createNew()">Create New Challenge</button>
       
-    </form>
+      <div class="contents">
+        <p ng-show="getChallenge().instructions">{{challenge.instructions}}</p>
+
+        <p ng-show="getChallenge().allowed.length">Use the following commands:
+          <ul>
+            <li ng-repeat="keyword in getChallenge().allowed">{{keyword}}</li>
+          </ul>
+        </p>
+
+        <p ng-show="getChallenge().notallowed.length">You cannot use any of the following keywords: 
+          <ul>
+            <li ng-repeat="keyword in getChallenge().notallowed">{{keyword}}</li>
+          </ul>
+        </p>
+
+        <p ng-show="getChallenge().nested.length">Ensure that you include the following: 
+          <ul>
+            <li ng-repeat="pair in getChallenge().nested">{{ pair | printNestedReq }}</li>
+          </ul>
+        </p>
+      </div>
+
+    </div>
+
+    <div id="feedback">
+      <div class="message" ng-repeat="message in messages"><p>{{message}}</p></div>
+    </div>
+
   </body>
 </html>
