@@ -75,6 +75,10 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge) {
 
   $scope.challenge = Challenge.get();
 
+  $scope.submitCode = function() {
+    var syntax = esprima.parse($scope.code);
+  }
+
   console.log( $scope.challenge );
 
 });
