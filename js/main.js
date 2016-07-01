@@ -125,6 +125,7 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
   $scope.submitCode = function() {
     var code = Editor.get();
     var correct = Challenge.check(code);
+    console.log(correct);
   }
 
 });
