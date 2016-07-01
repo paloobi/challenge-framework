@@ -41,7 +41,7 @@ fieldset {
 }
 
 .userCode {
-  position: fixed;
+  float: right;
   right: 0;
   width: 50%;
   height: 100%;
