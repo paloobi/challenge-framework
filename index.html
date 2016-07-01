@@ -13,37 +13,31 @@
     <button id="createBtn" class="btn" ng-click="createNew()">Create New Challenge</button>
 
     <div class="prompt">
-      <p>{{challenge.instructions}}</p>
+      <p ng-if="challenge.instructions">{{challenge.instructions}}</p>
 
-      {% if challenge.allowed.length %}
-        <p>Use the following commands:
-          <ul>
-            <li ng-repeat="keyword in challenge.allowed">{{keyword}}</li>
-          </ul>
-        </p>
-      {% endif %}
+      <p ng-if="challenge.allowed.length">Use the following commands:
+        <ul>
+          <li ng-repeat="keyword in challenge.allowed">{{keyword}}</li>
+        </ul>
+      </p>
 
-      {% if challenge.notallowed.length %}
-        <p>You cannot use any of the following keywords: 
-          <ul>
-            <li ng-repeat="keyword in challenge.notallowed">{{keyword}}</li>
-          </ul>
-        </p>
-      {% endif %}
+      <p ng-if="challenge.notallowed.length">You cannot use any of the following keywords: 
+        <ul>
+          <li ng-repeat="keyword in challenge.notallowed">{{keyword}}</li>
+        </ul>
+      </p>
 
-      {% if challenge.nested.length %}
-        <p>Ensure that you include the following: 
-          <ul>
-            <li ng-repeat="pair in challenge.nested">{{ pair }}</li>
-          </ul>
-        </p>
-      {% endif %}
-      
+      <p ng-if="challenge.nested.length">Ensure that you include the following: 
+        <ul>
+          <li ng-repeat="pair in challenge.nested">{{ pair }}</li>
+        </ul>
+      </p>
+
     </div>
 
     <div class="userCode">
       <label for="code">Submit Your Code:</label>
-      <input type="textarea">
+      <input type="textarea" ng-model="code">
     </div>
 
     <button class="btn" id="submitCode" ng-click="submitCode()">Check Your Code</button>
