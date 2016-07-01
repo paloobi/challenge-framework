@@ -79,6 +79,6 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge) {
     var syntax = esprima.parse($scope.code);
   }
 
-  console.log("CURRENT CHALLENGE:" $scope.challenge );
+  console.log("CURRENT CHALLENGE:", $scope.challenge );
 
 });
