@@ -16,6 +16,9 @@ fieldset {
 
 input[type="text"], textarea {
   width: 100%;
+  border: 1px solid gray;
+  border-radius: 2px;
+  padding: 2px;
 }
 
 #createModal {
