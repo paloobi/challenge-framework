@@ -62,7 +62,6 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
     // close the modal
     CreateModal.deactivate();
 
-    $scope.$parent.$digest();
   }
 
 });
