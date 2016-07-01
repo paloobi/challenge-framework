@@ -56,3 +56,8 @@ fieldset {
 #submitCode {
   z-index: 100;
 }
+
+.prompt {
+  display: inline-block;
+  position: absolute;
+}
