@@ -29,10 +29,29 @@ app.factory('CreateModal', function (btfModal) {
 });
 
 app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
-
   
+  // parse user input into a list of items
+  function parseList(str) {
+    return str.split(/[,\s]+/);
+  }
+
+  // parse user input into a list of parent/child objects
+  function parseNested(str) {
+    var list = parseList(str);
+    return list.map(function(item) {
+      var items = item.split(/[\s>\s]+/);
+      return { parent: items[0], child: items[1] }
+    });
+  }
+
   $scope.create = function() {
-    Challenge.create($scope.params);
+    // create a new challenge object
+    Challenge.create({
+      allowed: parseList($scope.allowed),
+      notallowed: parseList($scope.notallowed),
+      nested: parseNested($scope.nested)
+    });
+    // close the modal
     CreateModal.deactivate();
   }
 
