@@ -14,7 +14,7 @@ fieldset {
   border: none;
 }
 
-input[type="text*"] {
+input[type="text"], input[type="textarea"] {
   width: 100%;
 }
 
