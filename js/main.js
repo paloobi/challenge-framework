@@ -126,7 +126,7 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 });
 
 // challenge controller for the main page
-app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor) {
+app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor, Message) {
   
   $scope.getChallenge = Challenge.get;
 
@@ -139,7 +139,11 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
   $scope.submitCode = function() {
     var code = Editor.get();
     var correct = Challenge.check(code);
-    console.log(correct);
+
+    $scope.messages = [];
+    if (!correct[0]) messages.push("You're missing one of the required arguments... ");
+    if (!correct[1]) messages.push("You included something you're not supposed to... ");
+    if (!correct[2]) messages.push("Hm, this problem requires some specific nesting. Check again.");
   }
 
 });

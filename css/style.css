@@ -90,3 +90,14 @@ textarea {
     right: 0;
     position: absolute;
 }
+
+#feedback {
+  position: fixed;
+  bottom: 0;
+  margin: auto;
+}
+
+.message {
+  background-color: #A7DBD8;
+  border-radius: 10px;
+}
