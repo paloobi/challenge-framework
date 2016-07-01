@@ -50,4 +50,9 @@ fieldset {
   left: 0;
   width: 47%;
   bottom: 0;
+  z-index: -100;
+}
+
+#submitCode {
+  z-index: 100;
 }
