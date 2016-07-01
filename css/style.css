@@ -29,10 +29,10 @@ fieldset {
 .btn {
   background-color: #69D2E7;
   border: none; 
-  font-size: 120%;
-  padding: 10px;
+  font-size: 100%;
+  padding: 6px;
   border-radius: 5px;
-  margin: 20px;
+  margin: 10px;
 }
 
 .btn:hover {
