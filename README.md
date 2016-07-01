@@ -2,6 +2,8 @@
 
 Basic JavaScript programming challenge validation, for educational purposes.
 
+To test it out, this is hosted on Github pages [here](https://paloobi.github.io/challenge-framework).
+
 ##Key Features
 
 * A whitelist of specific functionality. Example: If a for loop is on the whitelist, then code will not pass unless it contains a for loop
