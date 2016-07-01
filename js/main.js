@@ -119,7 +119,7 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
   
   $scope.challenge = {
     instructions: "Create a while loop with an if statement inside of it.",
-    allowed: ["while","if"]
+    allowed: ["while","if"],
     notallowed: ["for"],
     nested: [ { parent:"while", child: "for" } ]
   }
