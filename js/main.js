@@ -2,24 +2,24 @@ var app = angular.module('challenger', ['btford.modal']);
 
 // // challenge schema:
 
-// //allowed commands
-// //disallowed commands
-// //required combinations
+// //allowed [String]
+// //disallowed [String]
+// //required [{parent: String, child: String}]
 
-// app.factory('Challenge', function() {
+app.factory('Challenge', function() {
   
-//   var currChallenge;
+  var currChallenge;
 
-//   return {
-//     create: function(params) {
-//       currChallenge = params;
-//     },
-//     get: function(){
-//       return currChallenge;
-//     }
-//   }
+  return {
+    create: function(params) {
+      currChallenge = params;
+    },
+    get: function(){
+      return currChallenge;
+    }
+  }
 
-// });
+});
 
 app.factory('CreateModal', function (btfModal) {
   return btfModal({
@@ -28,34 +28,34 @@ app.factory('CreateModal', function (btfModal) {
   });
 });
 
-// app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
+app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
   
-//   // parse user input into a list of items
-//   function parseList(str) {
-//     return str.split(/[,\s]+/);
-//   }
+  // parse user input into a list of items
+  function parseList(str) {
+    return str.split(/[,\s]+/);
+  }
 
-//   // parse user input into a list of parent/child objects
-//   function parseNested(str) {
-//     var list = parseList(str);
-//     return list.map(function(item) {
-//       var items = item.split(/[\s>\s]+/);
-//       return { parent: items[0], child: items[1] }
-//     });
-//   }
+  // parse user input into a list of parent/child objects
+  function parseNested(str) {
+    var list = parseList(str);
+    return list.map(function(item) {
+      var items = item.split(/[\s>\s]+/);
+      return { parent: items[0], child: items[1] }
+    });
+  }
 
-//   $scope.create = function() {
-//     // create a new challenge object
-//     Challenge.create({
-//       allowed: parseList($scope.allowed),
-//       notallowed: parseList($scope.notallowed),
-//       nested: parseNested($scope.nested)
-//     });
-//     // close the modal
-//     CreateModal.deactivate();
-//   }
+  $scope.create = function() {
+    // create a new challenge object
+    Challenge.create({
+      allowed: parseList($scope.allowed),
+      notallowed: parseList($scope.notallowed),
+      nested: parseNested($scope.nested)
+    });
+    // close the modal
+    CreateModal.deactivate();
+  }
 
-// });
+});
 
 app.controller('ChallengeCtrl', function($scope, CreateModal) {
   
