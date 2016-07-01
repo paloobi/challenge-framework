@@ -57,11 +57,12 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
 
 });
 
-app.controller('ChallengeCtrl', function($scope, CreateModal) {
+app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge) {
   
   $scope.createNew = function() {
     var confirm = window.confirm('Are you sure? Previous challenge will be lost!');
-    if (confirm) CreateModal.activate(); 
+    if (confirm) CreateModal.activate();
   }
+  console.log(Challenge.get())
 
 });
