@@ -39,7 +39,7 @@ app.factory('Challenge', function() {
     },
     check: function(code) {
       console.log('received code in checker');
-      var syntax = esprima.parse(code);
+      var syntax = esprima.parse(code, {tokens: true});
       console.log(syntax);
     }
   }
