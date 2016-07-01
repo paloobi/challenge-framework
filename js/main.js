@@ -33,7 +33,7 @@ app.factory('CreateModal', function (btfModal) {
   });
 });
 
-app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
+app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $parent) {
   
   // parse user input into a list of items
   function parseList(str) {
@@ -61,6 +61,8 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
 
     // close the modal
     CreateModal.deactivate();
+
+    $parent.$digest();
   }
 
 });
