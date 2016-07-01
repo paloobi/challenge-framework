@@ -16,7 +16,6 @@ app.factory('Challenge', function() {
 
   return {
     create: function(params) {
-      console.log("params: ", params)
       currChallenge = params;
     },
     get: function(){
@@ -33,7 +32,7 @@ app.factory('CreateModal', function (btfModal) {
   });
 });
 
-app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
+app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope) {
   
   // parse user input into a list of items
   function parseList(str) {
@@ -62,6 +61,7 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge) {
     // close the modal
     CreateModal.deactivate();
 
+    $rootScope.$digest();
   }
 
 });
