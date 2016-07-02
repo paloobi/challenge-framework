@@ -2,10 +2,9 @@
 
 blue - #69D2E7
 aqua - #A7DBD8
-beige - #E0E4CC
 light orange - #F38630
-orange - #FA6900
 */
+
 body {
   font-family: sans-serif;
 }
@@ -98,9 +97,13 @@ textarea {
 }
 
 .message {
-  background-color: #A7DBD8;
+  background-color: #F38630;
   border-radius: 10px;
   padding: 6px;
   width: 340px;
   margin: 2px;
+}
+
+.success {
+  background-color: #A7DBD8;
 }
