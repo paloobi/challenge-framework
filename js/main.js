@@ -38,7 +38,7 @@ app.factory('Challenge', function() {
     instructions: "Create a while loop with an if statement inside of it.",
     allowed: ["while","if"],
     notallowed: ["for"],
-    nested: [ { parent:"while", child: "for" } ]
+    nested: [ { parent:"while", child: "if" } ]
   };
 
   // search function looks within a syntax node to find an item
