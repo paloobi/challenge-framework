@@ -12,7 +12,7 @@ var app = angular.module('challenger', ['btford.modal']);
 
 app.filter('printNestedReq', function() {
   return function(nestedReq) {
-    return nestedReq.parent + " with a " + nestedReq + " statement inside of it";
+    return nestedReq.parent + " with a " + nestedReq.child + " statement inside of it";
   }
 })
 
@@ -38,7 +38,7 @@ app.factory('Challenge', function() {
     instructions: "Create a while loop with an if statement inside of it.",
     allowed: ["while","if"],
     notallowed: ["for"],
-    nested: [ { parent:"while", child: "for" } ]
+    nested: [ { parent:"while", child: "if" } ]
   };
 
   // search function looks within a syntax node to find an item
@@ -63,17 +63,17 @@ app.factory('Challenge', function() {
       return currChallenge;
     },
     check: function(code) {
-      var syntax = esprima.parse(code, {tokens: true});
+      var syntax = esprima.parse(code);
 
-      var allowedIncluded = currChallenge.allowed.length ? currChallenge.allowed.every(function(keyword) {
+      var allowedIncluded = currChallenge.allowed ? currChallenge.allowed.every(function(keyword) {
         return search(syntax, keyword);
       }) : true;
 
-      var notAllowedNotIncluded = currChallenge.notallowed.length ? currChallenge.notallowed.every(function(keyword) {
+      var notAllowedNotIncluded = currChallenge.notallowed ? currChallenge.notallowed.every(function(keyword) {
         return !search(syntax, keyword);
       }) : true;
 
-      var nestingsIncluded = currChallenge.nested.length ? currChallenge.nested.every(function(nested) {
+      var nestingsIncluded = currChallenge.nested ? currChallenge.nested.every(function(nested) {
         return search( search(syntax, nested.parent), nested.child);
       }) : true;
 
@@ -110,13 +110,15 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 
   $scope.create = function() {
 
+    // add parameters provided in form
+    var newChallenge = {};
+    if ($scope.instructions) newChallenge.instructions = $scope.instructions;
+    if ($scope.allowed) newChallenge.allowed = parseList($scope.allowed);
+    if ($scope.notallowed) newChallenge.notallowed = parseList($scope.notallowed);
+    if ($scope.nested) newChallenge.nested = parseNested($scope.nested);
+
     // create a new challenge object
-    Challenge.create({
-      instructions: $scope.instructions,
-      allowed: parseList($scope.allowed),
-      notallowed: parseList($scope.notallowed),
-      nested: parseNested($scope.nested)
-    });
+    Challenge.create(newChallenge);
 
     // close the modal
     CreateModal.deactivate();
@@ -140,10 +142,13 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
     var code = Editor.get();
     var correct = Challenge.check(code);
 
+    $scope.success = false;
+    
     $scope.messages = [];
     if (!correct[0]) $scope.messages.push("You're missing one of the required arguments... ");
     if (!correct[1]) $scope.messages.push("You included something you're not supposed to... ");
     if (!correct[2]) $scope.messages.push("Hm, this problem requires some specific nesting. Check again.");
+    if (!$scope.messages.length) $scope.success = true;
   }
 
 });

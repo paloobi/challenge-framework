@@ -34,7 +34,7 @@
       <button id="createBtn" class="btn" ng-click="createNew()">Create New Challenge</button>
       
       <div class="contents">
-        <p ng-show="getChallenge().instructions">{{challenge.instructions}}</p>
+        <p ng-show="getChallenge().instructions">{{getChallenge().instructions}}</p>
 
         <p ng-show="getChallenge().allowed.length">Use the following commands:
           <ul>
@@ -59,6 +59,7 @@
 
     <div id="feedback">
       <div class="message" ng-repeat="message in messages"><p>{{message}}</p></div>
+      <div class="message success" ng-show="success"><p>You did it! Your code passed the requirements!</p></div>
     </div>
 
   </body>
