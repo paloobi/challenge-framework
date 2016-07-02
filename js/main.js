@@ -65,15 +65,15 @@ app.factory('Challenge', function() {
     check: function(code) {
       var syntax = esprima.parse(code);
 
-      var allowedIncluded = currChallenge.allowed.length ? currChallenge.allowed.every(function(keyword) {
+      var allowedIncluded = currChallenge.allowed ? currChallenge.allowed.every(function(keyword) {
         return search(syntax, keyword);
       }) : true;
 
-      var notAllowedNotIncluded = currChallenge.notallowed.length ? currChallenge.notallowed.every(function(keyword) {
+      var notAllowedNotIncluded = currChallenge.notallowed ? currChallenge.notallowed.every(function(keyword) {
         return !search(syntax, keyword);
       }) : true;
 
-      var nestingsIncluded = currChallenge.nested.length ? currChallenge.nested.every(function(nested) {
+      var nestingsIncluded = currChallenge.nested ? currChallenge.nested.every(function(nested) {
         return search( search(syntax, nested.parent), nested.child);
       }) : true;
 
