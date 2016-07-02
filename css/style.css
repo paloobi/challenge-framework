@@ -100,5 +100,7 @@ textarea {
 .message {
   background-color: #A7DBD8;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
+  width: 340px;
+  margin: 2px;
 }
