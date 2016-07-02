@@ -63,7 +63,7 @@ app.factory('Challenge', function() {
       return currChallenge;
     },
     check: function(code) {
-      var syntax = esprima.parse(code, {tokens: true});
+      var syntax = esprima.parse(code);
 
       var allowedIncluded = currChallenge.allowed.length ? currChallenge.allowed.every(function(keyword) {
         return search(syntax, keyword);
@@ -110,13 +110,15 @@ app.controller('CreateCtrl', function($scope, CreateModal, Challenge, $rootScope
 
   $scope.create = function() {
 
+    // add parameters provided in form
+    var newChallenge = {};
+    if ($scope.instructions) newChallenge.instructions = $scope.instructions;
+    if ($scope.allowed) newChallenge.allowed = parseList($scope.allowed);
+    if ($scope.notallowed) newChallenge.notallowed = parseList($scope.notallowed);
+    if ($scope.nested) newChallenge.nested = parseNested($scope.nested);
+
     // create a new challenge object
-    Challenge.create({
-      instructions: $scope.instructions,
-      allowed: parseList($scope.allowed),
-      notallowed: parseList($scope.notallowed),
-      nested: parseNested($scope.nested)
-    });
+    Challenge.create(newChallenge);
 
     // close the modal
     CreateModal.deactivate();
