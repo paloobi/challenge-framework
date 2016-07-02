@@ -140,6 +140,8 @@ app.controller('ChallengeCtrl', function($scope, CreateModal, Challenge, Editor)
     var code = Editor.get();
     var correct = Challenge.check(code);
 
+    $scope.success = false;
+    
     $scope.messages = [];
     if (!correct[0]) $scope.messages.push("You're missing one of the required arguments... ");
     if (!correct[1]) $scope.messages.push("You included something you're not supposed to... ");
